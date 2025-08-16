@@ -28,7 +28,6 @@ def play_game():
             print("Bye!")
             break
 
-        # testing attempts for next stage
         mistakes += 1
         guessed_letters.append(guess)
 
