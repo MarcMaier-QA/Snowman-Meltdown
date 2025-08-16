@@ -1,4 +1,5 @@
 import random
+from Snowman_Meltdown_Art import STAGES
 
 # List of secret words
 WORDS = ["python", "git", "github", "snowman", "meltdown"]
@@ -14,10 +15,20 @@ def play_game():
     print("Welcome to Snowman Meltdown!")
     print("Secret word selected: " + secret_word)  # for testing, later remove this line
 
-    # TODO: Build your game loop here.
-    # For now, simply prompt the user once:
-    guess = input("Guess a letter: ").lower()
-    print("You guessed:", guess)
+    attempts = 0
+    while True:
+        print(STAGES[attempts])
+        guess = input("Guess a letter (type 'EXIT' or 0 to quit): ").upper()
+        print("You guessed:", guess)
+
+        if guess == "EXIT" or guess == "0":
+            print("Bye!")
+            break
+
+        # testing attempts for next stage
+        attempts += 1
+        if attempts >= len(STAGES):
+            break
 
 
 if __name__ == "__main__":
