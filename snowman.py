@@ -37,7 +37,19 @@ def play_game():
 
 
 def display_game_state(mistakes: int, secret_word: str, guessed_letters: list[str]) -> None:
-    """"""
+    """
+    Displays the current state of the Snowman Meltdown game.
+
+    Shows the ASCII-art representation of the snowman based on the number of mistakes,
+    the secret word with underscores for letters that have not been guessed yet,
+    and the list of letters that have already been guessed.
+
+    :param mistakes: The number of incorrect guesses so far.
+    :param secret_word: The word the player is trying to guess.
+    :param guessed_letters: The letters that the player has guessed so far.
+
+    :return: None
+    """
     # 1. ASCII-Art for wrong guesses.
     print(STAGES[mistakes])
 
