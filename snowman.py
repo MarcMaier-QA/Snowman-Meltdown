@@ -28,11 +28,22 @@ def play_game():
             print("Bye!")
             break
 
-        mistakes += 1
+        if guess in guessed_letters:
+            print(f"You already guessed the letter '{guess}'!")
+            continue
+
         guessed_letters.append(guess)
+
+        if guess not in secret_word:
+            mistakes += 1
+            print(f"{guess} wrong guess!")
 
         if mistakes >= len(STAGES):
             print("The snowman melted! GAME OVER!")
+            break
+
+        if all(letter in guessed_letters for letter in secret_word):
+            print("Congratulations! You guessed the word:", secret_word)
             break
 
 
