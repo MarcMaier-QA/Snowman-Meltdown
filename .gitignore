@@ -1,0 +1,12 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtuelle Umgebung
+.venv/
+
+# PyCharm Dateien
+.idea/
+
+# macOS temporäre Dateien
+.DS_Store
