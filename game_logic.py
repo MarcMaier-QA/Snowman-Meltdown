@@ -60,29 +60,35 @@ def play_game():
         guess = input("Guess a letter (type 'EXIT' or 0 to quit): ").lower()
         print("You guessed:", guess)
 
+        # Check if the player wants to quit
         if guess == "exit" or guess == "0":
             print("Bye!")
             break
 
-        # Input Validation: with .isalpha()
+        # Input Validation: only allows a single alphabetic character
         if len(guess) != 1 or not guess.isalpha():
             print("Please enter a single letter (a-z).")
             continue
 
+        # CHeck if the letter was already guessed
         if guess in guessed_letters:
             print(f"You already guessed the letter '{guess}'!")
             continue
 
+        # Add the guessed letter to the list of guessed letters
         guessed_letters.append(guess)
 
+        # Increment mistakes if the guess is wrong
         if guess not in secret_word:
             mistakes += 1
             print(f"{guess} wrong guess!")
 
+        # Check if the snowman has melted (game over)
         if mistakes >= len(STAGES):
             print("The snowman melted! GAME OVER!")
             break
 
+        # Checkt if all letters have been guessed (player wins)
         if all(letter in guessed_letters for letter in secret_word):
             print("Congratulations! You guessed the word:", secret_word)
             break
