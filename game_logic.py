@@ -4,12 +4,15 @@ from ascii_art import STAGES
 # List of secret words
 WORDS = ["python", "git", "github", "snowman", "meltdown"]
 
+
 def get_random_word():
     """Selects a random word from the list."""
     return WORDS[random.randint(0, len(WORDS) - 1)]
 
 
-def display_game_state(mistakes: int, secret_word: str, guessed_letters: list[str]) -> None:
+def display_game_state(
+        mistakes: int, secret_word: str, guessed_letters: list[str]
+) -> None:
     """
     Displays the current state of the Snowman Meltdown game.
 
@@ -28,12 +31,17 @@ def display_game_state(mistakes: int, secret_word: str, guessed_letters: list[st
     print() # blank line for spacing
 
     # 2. Secret word with underscore
-    display_word = " ".join([letter if letter in guessed_letters else "_" for letter in secret_word])
+    display_word = " ".join(
+        [letter if letter in guessed_letters else "_" for letter in secret_word]
+    )
     print("Word: ", display_word)
     print() # blank line for spacing
 
     # 3. already guessed letters
-    print("Guessed letters:", ' '.join(sorted(guessed_letters)) if guessed_letters else "None")
+    print(
+        "Guessed letters:",
+        " ".join(sorted(guessed_letters)) if guessed_letters else "None",
+    )
     print("-" * 40) # separator line
 
 
@@ -59,7 +67,7 @@ def play_game():
     while True:
         display_game_state(mistakes, secret_word, guessed_letters)
 
-        # Seperator after each turn for clarity
+        # Separator after each turn for clarity
         print("\n" + "="* 40 + "\n")
 
         guess = input("Guess a letter (type 'EXIT' or 0 to quit): ").lower()
@@ -75,7 +83,7 @@ def play_game():
             print("Please enter a single letter (a-z).")
             continue
 
-        # CHeck if the letter was already guessed
+        # Check if the letter was already guessed
         if guess in guessed_letters:
             print(f"You already guessed the letter '{guess}'!")
             continue
