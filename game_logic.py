@@ -64,6 +64,11 @@ def play_game():
             print("Bye!")
             break
 
+        # Input Validation: with .isalpha()
+        if len(guess) != 1 or not guess.isalpha():
+            print("Please enter a single letter (a-z).")
+            continue
+
         if guess in guessed_letters:
             print(f"You already guessed the letter '{guess}'!")
             continue
