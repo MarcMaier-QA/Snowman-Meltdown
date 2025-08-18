@@ -25,14 +25,16 @@ def display_game_state(mistakes: int, secret_word: str, guessed_letters: list[st
     """
     # 1. ASCII-Art for wrong guesses.
     print(STAGES[mistakes])
+    print() # blank line for spacing
 
     # 2. Secret word with underscore
     display_word = " ".join([letter if letter in guessed_letters else "_" for letter in secret_word])
     print("Word: ", display_word)
+    print() # blank line for spacing
 
     # 3. already guessed letters
     print("Guessed letters:", ' '.join(sorted(guessed_letters)) if guessed_letters else "None")
-    print()
+    print("-" * 40) # separator line
 
 
 def play_game():
@@ -56,6 +58,9 @@ def play_game():
 
     while True:
         display_game_state(mistakes, secret_word, guessed_letters)
+
+        # Seperator after each turn for clarity
+        print("\n" + "="* 40 + "\n")
 
         guess = input("Guess a letter (type 'EXIT' or 0 to quit): ").lower()
         print("You guessed:", guess)
