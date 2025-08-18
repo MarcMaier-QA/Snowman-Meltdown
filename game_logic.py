@@ -60,7 +60,7 @@ def play_game():
         guess = input("Guess a letter (type 'EXIT' or 0 to quit): ").lower()
         print("You guessed:", guess)
 
-        if guess == "EXIT" or guess == "0":
+        if guess == "exit" or guess == "0":
             print("Bye!")
             break
 
